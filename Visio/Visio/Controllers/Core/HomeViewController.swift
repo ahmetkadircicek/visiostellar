@@ -11,6 +11,8 @@ class HomeViewController: UIViewController {
     
     private var data: [Data] = [Data]()
     
+    var isExpanded = [Bool]()
+    
     private let homeFeedCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -26,12 +28,14 @@ class HomeViewController: UIViewController {
         view.addSubview(homeFeedCollection)
         configureNavbar()
         fetchSpaceNews()
+        
+        isExpanded = Array(repeating: false, count: data.count)
     }
     
     private func configureNavbar() {
         let label = UILabel()
         label.text = "Visiostellar"
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.font = .systemFont(ofSize: 32, weight: .ultraLight)
         label.textColor = .label
         label.textAlignment = .center
 
@@ -50,6 +54,7 @@ class HomeViewController: UIViewController {
             switch result {
             case .success(let news):
                 self?.data = news
+                self?.isExpanded = Array(repeating: false, count: news.count)
                 DispatchQueue.main.async {
                     self?.homeFeedCollection.reloadData()
                 }
@@ -64,6 +69,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(data.count)
         return data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        topButtonTouched(indexPath: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -81,8 +90,22 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionViewCell()
         }
         
+        guard let summaryModel = data[indexPath.row].summary else {
+            print("Başlık URL'si bulunamadı")
+            return UICollectionViewCell()
+        }
+        
+        if isExpanded[indexPath.row] {
+            cell.summaryLabel.isHidden = false
+        } else {
+            cell.summaryLabel.isHidden = true
+        }
+        
+        cell.delegate = self
+        
         cell.configureImage(with: imageModel)
         cell.configureTitle(with: textModel)
+        cell.configureSummary(with: summaryModel)
         cell.backgroundColor = .systemGray5
         cell.layer.cornerRadius = 32
         cell.layer.shadowColor = UIColor.black.cgColor
@@ -96,7 +119,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.size.width - 64, height: view.frame.size.width - 64)
+
+        if isExpanded[indexPath.row] == true{
+            return CGSize(width: view.frame.size.width - 64, height: (view.frame.size.width - 64)*2)
+        }else{
+            return CGSize(width: (view.frame.size.width - 64), height: (view.frame.size.width - 64))
+        }
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -105,5 +134,26 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
+    }
+    
+}
+
+extension HomeViewController:CollectionViewCellDelegate{
+    func topButtonTouched(indexPath: IndexPath) {
+        
+        if let cell = homeFeedCollection.cellForItem(at: indexPath) as? CollectionViewCell {
+                if isExpanded[indexPath.row] {
+                    cell.summaryLabel.isHidden = false
+                } else {
+                    cell.summaryLabel.isHidden = true
+                }
+            }
+        
+        isExpanded[indexPath.row] = !isExpanded[indexPath.row]
+        UIView.animate(withDuration: 1, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9, options: UIView.AnimationOptions.curveEaseInOut, animations: {
+              self.homeFeedCollection.reloadItems(at: [indexPath])
+            }, completion: { success in
+                print("success")
+        })
     }
 }

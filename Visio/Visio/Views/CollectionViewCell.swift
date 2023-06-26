@@ -8,9 +8,15 @@
 import UIKit
 import SDWebImage
 
+protocol CollectionViewCellDelegate:NSObjectProtocol{
+   func topButtonTouched(indexPath:IndexPath)
+}
+
 class CollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CollectionViewCell"
+    
+    weak var delegate: CollectionViewCellDelegate?
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -26,30 +32,52 @@ class CollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 12, weight: .regular)
+        label.font = .systemFont(ofSize: 14, weight: .regular)
         label.numberOfLines = 0
         label.textColor = .label
         label.layer.borderColor = UIColor.gray.cgColor
         label.clipsToBounds = true
         return label
     }()
+    
+    public let summaryLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .justified
+        label.font = .systemFont(ofSize: 14, weight: .light)
+        label.numberOfLines = 0
+        label.textColor = .label
+        label.layer.borderColor = UIColor.gray.cgColor
+        label.clipsToBounds = true
+        label.isHidden = true
+        return label
+    }()
+
  
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(imageView)
         contentView.addSubview(contentLabel)
+        contentView.addSubview(summaryLabel)
         configureConstraints()
     }
     
     func configureConstraints() {
         let contentLabelConstraints = [
-            contentLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4),
+            contentLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
             contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4)
+            contentLabel.heightAnchor.constraint(equalToConstant: 60)
+        ]
+        
+        let summaryLabelConstraints = [
+            summaryLabel.topAnchor.constraint(equalTo: contentLabel.bottomAnchor),
+            summaryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            summaryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
         ]
         
         NSLayoutConstraint.activate(contentLabelConstraints)
+        NSLayoutConstraint.activate(summaryLabelConstraints)
     }
     
     required init?(coder: NSCoder) {
@@ -72,5 +100,9 @@ class CollectionViewCell: UICollectionViewCell {
     
     public func configureTitle(with model: String) {
         contentLabel.text = model
+    }
+    
+    public func configureSummary(with model: String) {
+        summaryLabel.text = model
     }
 }

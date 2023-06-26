@@ -17,6 +17,6 @@ struct Data: Codable {
     var url: String
     var imageUrl: String?
     var newsSite: String
-    var summary: String
+    var summary: String?
     var publishedAt: String
 }

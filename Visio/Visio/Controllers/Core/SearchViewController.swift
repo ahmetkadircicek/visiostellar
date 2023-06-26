@@ -97,7 +97,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.configureImage(with: imageModel)
         cell.configureTitle(with: textModel)
         cell.backgroundColor = .systemGray5
-        cell.layer.cornerRadius = 16
+        cell.layer.cornerRadius = 32
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOpacity = 0.2
         cell.layer.shadowOffset = CGSize(width: 2, height: 2)
