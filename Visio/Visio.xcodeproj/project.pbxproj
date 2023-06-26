@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E3718C5E2A48E90B00890760 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C5D2A48E90B00890760 /* AppDelegate.swift */; };
+		E3718C602A48E90B00890760 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C5F2A48E90B00890760 /* SceneDelegate.swift */; };
+		E3718C622A48E90B00890760 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C612A48E90B00890760 /* MainTabBarViewController.swift */; };
+		E3718C682A48E90B00890760 /* Visio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3718C662A48E90B00890760 /* Visio.xcdatamodeld */; };
+		E3718C6A2A48E90B00890760 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3718C692A48E90B00890760 /* Assets.xcassets */; };
+		E3718C6D2A48E90B00890760 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3718C6B2A48E90B00890760 /* LaunchScreen.storyboard */; };
+		E3718C872A49960A00890760 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C862A49960A00890760 /* HomeViewController.swift */; };
+		E3718C892A49A9C500890760 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C882A49A9C500890760 /* CollectionViewCell.swift */; };
+		E3718C8B2A49AF4B00890760 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C8A2A49AF4B00890760 /* APICaller.swift */; };
+		E3718C8D2A49B05F00890760 /* SpaceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C8C2A49B05F00890760 /* SpaceData.swift */; };
+		E3718C8F2A49B9CD00890760 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C8E2A49B9CD00890760 /* Extensions.swift */; };
+		E3718C922A49BAA500890760 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E3718C912A49BAA500890760 /* SDWebImage */; };
+		E3718C942A49BAA500890760 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E3718C932A49BAA500890760 /* SDWebImageMapKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E3718C5A2A48E90B00890760 /* Visio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Visio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3718C5D2A48E90B00890760 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E3718C5F2A48E90B00890760 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E3718C612A48E90B00890760 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		E3718C672A48E90B00890760 /* Visio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Visio.xcdatamodel; sourceTree = "<group>"; };
+		E3718C692A48E90B00890760 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E3718C6C2A48E90B00890760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E3718C6E2A48E90B00890760 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3718C862A49960A00890760 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E3718C882A49A9C500890760 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		E3718C8A2A49AF4B00890760 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		E3718C8C2A49B05F00890760 /* SpaceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceData.swift; sourceTree = "<group>"; };
+		E3718C8E2A49B9CD00890760 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E3718C572A48E90B00890760 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3718C942A49BAA500890760 /* SDWebImageMapKit in Frameworks */,
+				E3718C922A49BAA500890760 /* SDWebImage in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E3718C512A48E90B00890760 = {
+			isa = PBXGroup;
+			children = (
+				E3718C5C2A48E90B00890760 /* Visio */,
+				E3718C5B2A48E90B00890760 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E3718C5B2A48E90B00890760 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3718C5A2A48E90B00890760 /* Visio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E3718C5C2A48E90B00890760 /* Visio */ = {
+			isa = PBXGroup;
+			children = (
+				E3718C7F2A48F13800890760 /* Managers */,
+				E3718C7E2A48F13000890760 /* Resources */,
+				E3718C7B2A48F0EF00890760 /* Models */,
+				E3718C7D2A48F0FB00890760 /* Views */,
+				E3718C7C2A48F0F400890760 /* ViewModels */,
+				E3718C742A48EA6400890760 /* Controllers */,
+				E3718C692A48E90B00890760 /* Assets.xcassets */,
+				E3718C6B2A48E90B00890760 /* LaunchScreen.storyboard */,
+				E3718C6E2A48E90B00890760 /* Info.plist */,
+				E3718C662A48E90B00890760 /* Visio.xcdatamodeld */,
+			);
+			path = Visio;
+			sourceTree = "<group>";
+		};
+		E3718C742A48EA6400890760 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E3718C762A48EA7900890760 /* General */,
+				E3718C752A48EA7400890760 /* Core */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E3718C752A48EA7400890760 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E3718C862A49960A00890760 /* HomeViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E3718C762A48EA7900890760 /* General */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		E3718C7B2A48F0EF00890760 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3718C8C2A49B05F00890760 /* SpaceData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E3718C7C2A48F0F400890760 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E3718C7D2A48F0FB00890760 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E3718C882A49A9C500890760 /* CollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E3718C7E2A48F13000890760 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E3718C5D2A48E90B00890760 /* AppDelegate.swift */,
+				E3718C5F2A48E90B00890760 /* SceneDelegate.swift */,
+				E3718C612A48E90B00890760 /* MainTabBarViewController.swift */,
+				E3718C8E2A49B9CD00890760 /* Extensions.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E3718C7F2A48F13800890760 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E3718C8A2A49AF4B00890760 /* APICaller.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E3718C592A48E90B00890760 /* Visio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3718C712A48E90B00890760 /* Build configuration list for PBXNativeTarget "Visio" */;
+			buildPhases = (
+				E3718C562A48E90B00890760 /* Sources */,
+				E3718C572A48E90B00890760 /* Frameworks */,
+				E3718C582A48E90B00890760 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Visio;
+			packageProductDependencies = (
+				E3718C912A49BAA500890760 /* SDWebImage */,
+				E3718C932A49BAA500890760 /* SDWebImageMapKit */,
+			);
+			productName = Visio;
+			productReference = E3718C5A2A48E90B00890760 /* Visio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E3718C522A48E90B00890760 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					E3718C592A48E90B00890760 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = E3718C552A48E90B00890760 /* Build configuration list for PBXProject "Visio" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E3718C512A48E90B00890760;
+			packageReferences = (
+				E3718C902A49BAA500890760 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
+			productRefGroup = E3718C5B2A48E90B00890760 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E3718C592A48E90B00890760 /* Visio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E3718C582A48E90B00890760 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3718C6D2A48E90B00890760 /* LaunchScreen.storyboard in Resources */,
+				E3718C6A2A48E90B00890760 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E3718C562A48E90B00890760 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3718C8D2A49B05F00890760 /* SpaceData.swift in Sources */,
+				E3718C8F2A49B9CD00890760 /* Extensions.swift in Sources */,
+				E3718C872A49960A00890760 /* HomeViewController.swift in Sources */,
+				E3718C682A48E90B00890760 /* Visio.xcdatamodeld in Sources */,
+				E3718C892A49A9C500890760 /* CollectionViewCell.swift in Sources */,
+				E3718C8B2A49AF4B00890760 /* APICaller.swift in Sources */,
+				E3718C622A48E90B00890760 /* MainTabBarViewController.swift in Sources */,
+				E3718C5E2A48E90B00890760 /* AppDelegate.swift in Sources */,
+				E3718C602A48E90B00890760 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E3718C6B2A48E90B00890760 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3718C6C2A48E90B00890760 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E3718C6F2A48E90B00890760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E3718C702A48E90B00890760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E3718C722A48E90B00890760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A2L774K3W9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Visio/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.akadircicek.Visio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E3718C732A48E90B00890760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A2L774K3W9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Visio/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.akadircicek.Visio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E3718C552A48E90B00890760 /* Build configuration list for PBXProject "Visio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3718C6F2A48E90B00890760 /* Debug */,
+				E3718C702A48E90B00890760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3718C712A48E90B00890760 /* Build configuration list for PBXNativeTarget "Visio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3718C722A48E90B00890760 /* Debug */,
+				E3718C732A48E90B00890760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E3718C902A49BAA500890760 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E3718C912A49BAA500890760 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3718C902A49BAA500890760 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		E3718C932A49BAA500890760 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3718C902A49BAA500890760 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		E3718C662A48E90B00890760 /* Visio.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E3718C672A48E90B00890760 /* Visio.xcdatamodel */,
+			);
+			currentVersion = E3718C672A48E90B00890760 /* Visio.xcdatamodel */;
+			path = Visio.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E3718C522A48E90B00890760 /* Project object */;
+}
