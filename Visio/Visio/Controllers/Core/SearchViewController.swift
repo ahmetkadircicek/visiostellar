@@ -55,6 +55,7 @@ class SearchViewController: UIViewController {
         title = "Search"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
+        
         view.backgroundColor = .systemBackground
         discoverTable.frame = view.bounds
     }
@@ -96,6 +97,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         cell.configureImage(with: imageModel)
         cell.configureTitle(with: textModel)
+        cell.configureForSearchView(with: textModel)
         cell.backgroundColor = .systemGray5
         cell.layer.cornerRadius = 32
         cell.layer.shadowColor = UIColor.black.cgColor

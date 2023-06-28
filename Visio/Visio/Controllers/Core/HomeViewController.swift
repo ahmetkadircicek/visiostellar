@@ -21,6 +21,15 @@ class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Visiostellar"
+        label.font = .systemFont(ofSize: 32, weight: .ultraLight)
+        label.textColor = .label
+        label.textAlignment = .center
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         homeFeedCollection.delegate = self
@@ -31,17 +40,13 @@ class HomeViewController: UIViewController {
         
         isExpanded = Array(repeating: false, count: data.count)
     }
+
     
+    
+
     private func configureNavbar() {
-        let label = UILabel()
-        label.text = "Visiostellar"
-        label.font = .systemFont(ofSize: 32, weight: .ultraLight)
-        label.textColor = .label
-        label.textAlignment = .center
-
-        navigationItem.titleView = label
+        navigationItem.titleView = titleLabel
     }
-
 
     
     override func viewDidLayoutSubviews() {
@@ -67,11 +72,15 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(data.count)
         return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        topButtonTouched(indexPath: indexPath)
+        collectionView.scrollToItem(at: indexPath, at: .top, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         topButtonTouched(indexPath: indexPath)
     }
     
@@ -80,25 +89,31 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionViewCell()
         }
         
-        guard let imageModel = data[indexPath.row].imageUrl else {
+        let item = data[indexPath.row]
+        
+        guard let imageModel = item.imageUrl else {
             print("Görüntü URL'si bulunamadı")
             return UICollectionViewCell()
         }
         
-        guard let textModel = data[indexPath.row].title else {
+        guard let textModel = item.title else {
             print("Başlık URL'si bulunamadı")
             return UICollectionViewCell()
         }
         
-        guard let summaryModel = data[indexPath.row].summary else {
+        guard let summaryModel = item.summary else {
             print("Başlık URL'si bulunamadı")
             return UICollectionViewCell()
         }
         
-        if isExpanded[indexPath.row] {
-            cell.summaryLabel.isHidden = false
-        } else {
-            cell.summaryLabel.isHidden = true
+        guard let newsSiteModel = item.newsSite else {
+            print("Başlık URL'si bulunamadı")
+            return UICollectionViewCell()
+        }
+        
+        guard let urlString = item.url, let newsUrl = URL(string: urlString) else {
+            print("Invalid URL: \(item.url ?? "")")
+            return UICollectionViewCell()
         }
         
         cell.delegate = self
@@ -106,22 +121,39 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.configureImage(with: imageModel)
         cell.configureTitle(with: textModel)
         cell.configureSummary(with: summaryModel)
+        cell.configureNewsSite(with: newsSiteModel)
+        cell.configureURL(with: newsUrl)
         cell.backgroundColor = .systemGray5
         cell.layer.cornerRadius = 32
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOpacity = 0.2
         cell.layer.shadowOffset = CGSize(width: 2, height: 2)
         cell.layer.shadowRadius = 4
-
+        
+        cell.summaryLabel.isHidden = !isExpanded[indexPath.row]
+        cell.newsSiteLabel.isHidden = !isExpanded[indexPath.row]
+        cell.urlLabel.isHidden = !isExpanded[indexPath.row]
+        
         return cell
     }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        let item = data[indexPath.row].summary
+        
+        let label = UILabel()
+        label.text = item
+        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        label.numberOfLines = 0
+        
+        let labelWidth = collectionView.frame.size.width - 64
+        let labelSize = label.sizeThatFits(CGSize(width: labelWidth, height: CGFloat.greatestFiniteMagnitude))
+        
+        let cellHeight = labelSize.height + 64
+        
         if isExpanded[indexPath.row] == true{
-            return CGSize(width: view.frame.size.width - 64, height: (view.frame.size.width - 64)*2)
+            return CGSize(width: view.frame.size.width - 64, height: view.frame.size.width - 64 + cellHeight)
         }else{
             return CGSize(width: (view.frame.size.width - 64), height: (view.frame.size.width - 64))
         }
@@ -138,22 +170,25 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
-extension HomeViewController:CollectionViewCellDelegate{
+extension HomeViewController:CollectionViewCellDelegate{	
     func topButtonTouched(indexPath: IndexPath) {
         
         if let cell = homeFeedCollection.cellForItem(at: indexPath) as? CollectionViewCell {
                 if isExpanded[indexPath.row] {
                     cell.summaryLabel.isHidden = false
+                    cell.newsSiteLabel.isHidden = false
+                    cell.urlLabel.isHidden = false
                 } else {
                     cell.summaryLabel.isHidden = true
+                    cell.newsSiteLabel.isHidden = true
+                    cell.urlLabel.isHidden = true
                 }
             }
         
         isExpanded[indexPath.row] = !isExpanded[indexPath.row]
-        UIView.animate(withDuration: 1, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9, options: UIView.AnimationOptions.curveEaseInOut, animations: {
+        UIView.animate(withDuration: 1, delay: 1, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseInOut, animations: {
               self.homeFeedCollection.reloadItems(at: [indexPath])
             }, completion: { success in
-                print("success")
         })
     }
 }

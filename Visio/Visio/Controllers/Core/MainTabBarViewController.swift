@@ -17,8 +17,8 @@ class MainTabBarViewController: UITabBarController {
         let vc2 = UINavigationController(rootViewController: SearchViewController())
 
         
-        vc1.tabBarItem.image = UIImage(systemName: "house")
-        vc1.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
+        vc1.tabBarItem.image = UIImage(systemName: "moon.stars")
+        vc1.tabBarItem.selectedImage = UIImage(systemName: "moon.stars.fill")
         vc2.tabBarItem.image = UIImage(systemName: "magnifyingglass")
 
         
